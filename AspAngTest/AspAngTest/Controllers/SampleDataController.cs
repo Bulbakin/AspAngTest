@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Business.DataAccess;
+using Database.Database.Tables;
 
 namespace AspAngTest.Controllers
 {
+
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
@@ -39,6 +42,14 @@ namespace AspAngTest.Controllers
                     return 32 + (int)(TemperatureC / 0.5556);
                 }
             }
+        }
+
+        [HttpGet("[action]")]
+        public IEnumerable<Books> getBooks() {
+
+            DataAccess da = new DataAccess();
+
+            return da.getBooks();
         }
     }
 }
