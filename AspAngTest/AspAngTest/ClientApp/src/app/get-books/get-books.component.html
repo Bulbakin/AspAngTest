@@ -1,3 +1,20 @@
-<p>
-  get-books works!
-</p>
+<div>
+  <table class="taulu">
+    <thead>
+      <tr>
+        <td>BookID</td>
+        <td>BookName</td>
+        <td>Description</td>
+        <td>Price</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td class="bookid">{{ book.bookID }}</td>
+        <td class="bookname">{{ book.bookName }}</td>
+        <td class="bookdesc">{{ book.description }}</td>
+        <td class="bookprice">{{ book.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

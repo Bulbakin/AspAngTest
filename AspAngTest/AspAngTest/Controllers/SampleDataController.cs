@@ -51,5 +51,13 @@ namespace AspAngTest.Controllers
 
             return da.getBooks();
         }
+
+        [HttpGet("[action]")]
+        public int addBooks(Books book) {
+
+            DataAccess da = new DataAccess();
+
+            return da.addBook(book);
+        }
     }
 }
