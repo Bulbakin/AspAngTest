@@ -9,7 +9,7 @@ namespace Persistence.DBContext
 {
     public class ApplicationDbContext : DbContext
     {
-        public string ConnectionString = @"Server = DESKTOP-CBALK4D\SQLEXPRESS; Database = AspAngDB; Trusted_Connection = true";
+        public string ConnectionString = @"Server = LAPTOP-19441AC2; Database = AspAngDB; Trusted_Connection = true";
 
         public DbSet<Books> Books { get; set; }
 

@@ -13,9 +13,9 @@ export class AddBookComponent implements OnInit {
 
   constructor(private data: DataService, formBuilder: FormBuilder) {
     this.addBook_form = formBuilder.group({
-      name: ["", Validators.required],
-      description: ["", Validators.required],
-      price: ["", Validators.required]
+      BookName: ["", Validators.required],
+      Description: ["", Validators.required],
+      Price: ["", Validators.required]
     })
   }
 

@@ -28,9 +28,11 @@ export class DataService {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     let options = { headers: headers };
 
+    console.log(book);
     return this.http.post(
       this.baseurl + "/addBook", book, options)
-      .pipe(map((res: Response) => res.json()));
+      .pipe(map(res => res as IBooks));
+
   }
 
 }

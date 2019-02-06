@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Business.DataAccess;
 using Database.Database.Tables;
+using System.IO;
 
 namespace AspAngTest.Controllers
 {
@@ -12,6 +13,8 @@ namespace AspAngTest.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+        DataAccess da = new DataAccess();
+
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -44,18 +47,15 @@ namespace AspAngTest.Controllers
             }
         }
 
+
+
         [HttpGet("[action]")]
         public IEnumerable<Books> getBooks() {
-
-            DataAccess da = new DataAccess();
-
             return da.getBooks();
         }
 
-        [HttpGet("[action]")]
-        public int addBooks(Books book) {
-
-            DataAccess da = new DataAccess();
+        [HttpPost("[action]")]
+        public int addBook([FromBody] Books book) {
 
             return da.addBook(book);
         }

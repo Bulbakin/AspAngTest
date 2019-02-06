@@ -1,19 +1,19 @@
 <form [formGroup]="addBook_form" >
   <label>Book name</label><br />
-  <input formControlName="name" type="text" name="name" class="txtInput" required /><br />
-  <div *ngIf="addBook_form.get('name').touched && addBook_form.get('name').hasError('required')" class="alert alert-danger">
+  <input formControlName="BookName" type="text" name="BookName" class="txtInput" required /><br />
+  <div *ngIf="addBook_form.get('BookName').touched && addBook_form.get('BookName').hasError('required')" class="alert">
     Name is required.
   </div>
 
   <label>Description</label><br />
-  <textarea formControlName="description" name="desc" class="txtInput" required></textarea><br />
-  <div *ngIf="addBook_form.get('description').touched && addBook_form.get('description').hasError('required')" class="alert alert-danger">
+  <textarea formControlName="Description" name="Description" class="txtInput" required></textarea><br />
+  <div *ngIf="addBook_form.get('Description').touched && addBook_form.get('Description').hasError('required')" class="alert">
     Description is required.
   </div>
 
   <label>Price</label><br />
-  <input formControlName="price" type="text" name="price" class="txtInput" required /><br />
-  <div *ngIf="addBook_form.get('price').touched && addBook_form.get('price').hasError('required')" class="alert alert-danger">
+  <input formControlName="Price" type="text" name="Price" class="txtInput" required /><br />
+  <div *ngIf="addBook_form.get('Price').touched && addBook_form.get('Price').hasError('required')" class="alert">
     Price is required.
   </div>
 
