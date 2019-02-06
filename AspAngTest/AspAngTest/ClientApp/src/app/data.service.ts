@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { IBooks } from './Books';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Options } from 'selenium-webdriver/edge';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class DataService {
 
-  private _url: string = "/api/sampledata/getbooks";
-  private _url2: string = "/api/sampledata/addbook";
+  private baseurl: string = "/api/sampledata";
 
   constructor(private http: HttpClient) {}
 
@@ -17,11 +20,17 @@ export class DataService {
   }
 
   getBooks() {
-    return this.http.get(this._url);
+    return this.http.get(this.baseurl + "/getbooks");
   }
 
-  addBook() {
-    return this.http.get(this._url2);
+  addBook(book): Observable<IBooks> {
+
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let options = { headers: headers };
+
+    return this.http.post(
+      this.baseurl + "/addBook", book, options)
+      .pipe(map((res: Response) => res.json()));
   }
 
 }

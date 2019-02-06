@@ -1,7 +1,21 @@
-<form method="post">
-  <input type="text" name="name" />
-  <input type="text" name="desc" />
-  <input type="text" name="price"/>
+<form [formGroup]="addBook_form" >
+  <label>Book name</label><br />
+  <input formControlName="name" type="text" name="name" class="txtInput" required /><br />
+  <div *ngIf="addBook_form.get('name').touched && addBook_form.get('name').hasError('required')" class="alert alert-danger">
+    Name is required.
+  </div>
 
-  <button type="submit"></button>
+  <label>Description</label><br />
+  <textarea formControlName="description" name="desc" class="txtInput" required></textarea><br />
+  <div *ngIf="addBook_form.get('description').touched && addBook_form.get('description').hasError('required')" class="alert alert-danger">
+    Description is required.
+  </div>
+
+  <label>Price</label><br />
+  <input formControlName="price" type="text" name="price" class="txtInput" required /><br />
+  <div *ngIf="addBook_form.get('price').touched && addBook_form.get('price').hasError('required')" class="alert alert-danger">
+    Price is required.
+  </div>
+
+  <button (click)="onSubmit()" type="submit" [disabled]="addBook_form.invalid">Submit</button>
 </form>
